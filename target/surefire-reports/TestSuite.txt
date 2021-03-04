@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 23.097 s <<< FAILURE! - in TestSuite
+com.practice.testng.TestNGDemo1.verifyCategoriesLinkTest  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: expected [9] but found [10]
+	at com.practice.testng.TestNGDemo1.verifyCategoriesLinkTest(TestNGDemo1.java:27)
+

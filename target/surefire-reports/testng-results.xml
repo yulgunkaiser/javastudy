@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="13" passed="10" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-11-18T17:18:47Z" name="Cubecart Automation TestNG Framework" finished-at="2020-11-18T17:19:09Z" duration-ms="22297">
+    <groups>
+      <group name="Integration Test">
+        <method signature="TestNGDemo2.testC()[pri:0, instance:com.practice.testng.TestNGDemo2@52102734]" name="testC" class="com.practice.testng.TestNGDemo2"/>
+        <method signature="TestNGDemo2.testD()[pri:0, instance:com.practice.testng.TestNGDemo2@52102734]" name="testD" class="com.practice.testng.TestNGDemo2"/>
+      </group> <!-- Integration Test -->
+    </groups>
+    <test started-at="2020-11-18T17:18:47Z" name="Cubecart Automation Test" finished-at="2020-11-18T17:19:09Z" duration-ms="22251">
+      <class name="com.practice.testng.TestNGDemo1">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="setup" finished-at="2020-11-18T17:18:47Z" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="printTestInfo()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfo" finished-at="2020-11-18T17:18:47Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfo -->
+        <test-method signature="addProductTest()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="addProductTest" finished-at="2020-11-18T17:18:47Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductTest -->
+        <test-method is-config="true" signature="printTestInfoAfter()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfoAfter" finished-at="2020-11-18T17:18:47Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfoAfter -->
+        <test-method signature="verifyAllLinksTest()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="verifyAllLinksTest" finished-at="2020-11-18T17:18:47Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAllLinksTest -->
+        <test-method is-config="true" signature="printTestInfo()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfo" finished-at="2020-11-18T17:18:47Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfo -->
+        <test-method is-config="true" signature="printTestInfoAfter()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfoAfter" finished-at="2020-11-18T17:18:47Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfoAfter -->
+        <test-method is-config="true" signature="printTestInfo()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfo" finished-at="2020-11-18T17:18:47Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfo -->
+        <test-method signature="verifyCategoriesLinkTest()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="verifyCategoriesLinkTest" finished-at="2020-11-18T17:18:47Z" duration-ms="1" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [9] but found [10]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [9] but found [10]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:652)
+at org.testng.Assert.assertEquals(Assert.java:662)
+at com.practice.testng.TestNGDemo1.verifyCategoriesLinkTest(TestNGDemo1.java:27)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:377)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:138)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:465)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:451)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCategoriesLinkTest -->
+        <test-method is-config="true" signature="printTestInfoAfter()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="printTestInfoAfter" finished-at="2020-11-18T17:18:47Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestInfoAfter -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.practice.testng.TestNGDemo1@740773a3]" started-at="2020-11-18T17:18:47Z" name="teardown" finished-at="2020-11-18T17:18:47Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.practice.testng.TestNGDemo1 -->
+      <class name="com.practice.testng.TestNGDemo5">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.practice.testng.TestNGDemo5@37f1104d]" started-at="2020-11-18T17:18:47Z" name="setUp" finished-at="2020-11-18T17:18:51Z" duration-ms="3793" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="googleSearchTcest()[pri:0, instance:com.practice.testng.TestNGDemo5@37f1104d]" started-at="2020-11-18T17:18:51Z" name="googleSearchTcest" finished-at="2020-11-18T17:18:53Z" duration-ms="2550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTcest -->
+        <test-method signature="googleSearchTcest()[pri:0, instance:com.practice.testng.TestNGDemo5@37f1104d]" started-at="2020-11-18T17:18:53Z" name="googleSearchTcest" finished-at="2020-11-18T17:18:55Z" duration-ms="1464" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTcest -->
+        <test-method signature="googleSearchTcest()[pri:0, instance:com.practice.testng.TestNGDemo5@37f1104d]" started-at="2020-11-18T17:18:55Z" name="googleSearchTcest" finished-at="2020-11-18T17:18:56Z" duration-ms="1561" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTcest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.practice.testng.TestNGDemo5@37f1104d]" started-at="2020-11-18T17:18:56Z" name="teardown" finished-at="2020-11-18T17:18:57Z" duration-ms="639" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.practice.testng.TestNGDemo5 -->
+      <class name="com.practice.testng.TestNGDemo6">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.practice.testng.TestNGDemo6@55740540]" started-at="2020-11-18T17:18:57Z" name="setUp" finished-at="2020-11-18T17:19:02Z" duration-ms="5240" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="googleSearchTest(java.lang.String)[pri:0, instance:com.practice.testng.TestNGDemo6@55740540]" started-at="2020-11-18T17:19:02Z" name="googleSearchTest" data-provider="searchWords" finished-at="2020-11-18T17:19:04Z" duration-ms="2236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Java]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTest -->
+        <test-method signature="googleSearchTest(java.lang.String)[pri:0, instance:com.practice.testng.TestNGDemo6@55740540]" started-at="2020-11-18T17:19:04Z" name="googleSearchTest" data-provider="searchWords" finished-at="2020-11-18T17:19:06Z" duration-ms="1506" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Selenium]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTest -->
+        <test-method signature="googleSearchTest(java.lang.String)[pri:0, instance:com.practice.testng.TestNGDemo6@55740540]" started-at="2020-11-18T17:19:06Z" name="googleSearchTest" data-provider="searchWords" finished-at="2020-11-18T17:19:08Z" duration-ms="2198" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[DC]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleSearchTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.practice.testng.TestNGDemo6@55740540]" started-at="2020-11-18T17:19:08Z" name="teardown" finished-at="2020-11-18T17:19:09Z" duration-ms="1001" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.practice.testng.TestNGDemo6 -->
+    </test> <!-- Cubecart Automation Test -->
+    <test started-at="2020-11-18T17:19:09Z" name="CubeCart Automation Integration Test" finished-at="2020-11-18T17:19:09Z" duration-ms="3">
+      <class name="com.practice.testng.TestNGDemo2">
+        <test-method signature="testC()[pri:0, instance:com.practice.testng.TestNGDemo2@52102734]" started-at="2020-11-18T17:19:09Z" name="testC" finished-at="2020-11-18T17:19:09Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testC -->
+        <test-method signature="testD()[pri:0, instance:com.practice.testng.TestNGDemo2@52102734]" started-at="2020-11-18T17:19:09Z" name="testD" finished-at="2020-11-18T17:19:09Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testD -->
+      </class> <!-- com.practice.testng.TestNGDemo2 -->
+    </test> <!-- CubeCart Automation Integration Test -->
+  </suite> <!-- Cubecart Automation TestNG Framework -->
+</testng-results>

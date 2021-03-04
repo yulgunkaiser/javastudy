@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Cubecart Automation TestNG Framework]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Cubecart Automation Test(failed)" verbose="0">
+    <classes>
+      <class name="com.practice.testng.TestNGDemo1">
+        <methods>
+          <include name="printTestInfoAfter"/>
+          <include name="teardown"/>
+          <include name="printTestInfo"/>
+          <include name="verifyCategoriesLinkTest"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.practice.testng.TestNGDemo1 -->
+    </classes>
+  </test> <!-- Cubecart Automation Test(failed) -->
+</suite> <!-- Failed suite [Cubecart Automation TestNG Framework] -->

@@ -1,0 +1,388 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-01-21T23:10:55.122Z",
+        "line": 10,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2999600,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"Baltimore\" and \"us\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Baltimore\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"us\"",
+                  "offset": 18
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 536689500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1998400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-21T23:10:55.751Z",
+        "line": 11,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"London\" and \"uk\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"London\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"uk\"",
+                  "offset": 15
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 66961800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-21T23:10:55.831Z",
+        "line": 12,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 999600,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"Tokyo\" and \"jp\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Tokyo\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"jp\"",
+                  "offset": 14
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 59965300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-21T23:10:55.908Z",
+        "line": 13,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;5",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"Chicago\" and \"us\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Chicago\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"us\"",
+                  "offset": 16
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 81954000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 999100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-21T23:10:56.001Z",
+        "line": 14,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;6",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"Toronto\" and \"ca\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Toronto\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"ca\"",
+                  "offset": 16
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 60964000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 999800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-21T23:10:56.074Z",
+        "line": 15,
+        "name": "user can get forecast data for any city",
+        "description": "",
+        "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api;user-can-get-forecast-data-for-any-city;;7",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1999200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a \"Istanbul\" and \"tr\" and api key",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Istanbul\"",
+                  "offset": 2
+                },
+                {
+                  "val": "\"tr\"",
+                  "offset": 17
+                }
+              ],
+              "location": "com.example.cucumber.WeatherApiStepdefs.aCityAndCountryAndApiKey(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 79955800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "a user calls the weather api with api key",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.aUserCallsTheWeatherApiWithApiKey()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user should see the weather data for the city",
+            "match": {
+              "location": "com.example.cucumber.WeatherApiStepdefs.theUserShouldSeeTheWeatherDataForTheCity()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@WeatherAPI"
+          }
+        ]
+      }
+    ],
+    "name": "User should be able to get weather forecast using open weather api",
+    "description": "  User should call the weather api with valid APIID and get forecast information",
+    "id": "user-should-be-able-to-get-weather-forecast-using-open-weather-api",
+    "keyword": "Feature",
+    "uri": "file:src/main/java/com/example/cucumber/weatherapi.feature",
+    "tags": [
+      {
+        "name": "@WeatherAPI",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
