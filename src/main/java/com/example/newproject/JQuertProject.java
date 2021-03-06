@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
 
 public class JQuertProject {
@@ -20,19 +19,16 @@ public class JQuertProject {
         driver.get("https://jqueryui.com");
 
         //draggable
-        //driver.get("https://jqueryui.com/draggable/");
         WebElement draggableLink=driver.findElement(By.linkText("Draggable"));
         draggableLink.click();
-        WebElement draggableiframe=driver.findElement(By.tagName("iframe"));
-        waitForElement(driver,draggableiframe);
-        driver.switchTo().frame(draggableiframe);
-        WebElement draggableIframe=driver.findElement(By.cssSelector(".ui-widget-content.ui-draggable.ui-draggable-handle"));
-        Point beforeLocation=draggableIframe.getLocation();
-        int beforeX=beforeLocation.getX();
+        WebElement draggableIframe=driver.findElement(By.tagName("iframe"));
+        waitForElement(driver,draggableIframe);
+        driver.switchTo().frame(draggableIframe);
+        WebElement draggableObject=driver.findElement(By.cssSelector(".ui-widget-content.ui-draggable.ui-draggable-handle"));
         Actions actions=new Actions(driver);
-        actions.clickAndHold(draggableIframe).moveByOffset(20,0).release();
+        actions.clickAndHold(draggableObject).moveByOffset(60,0).release();
         actions.build().perform();
-        //test
+
         //droppable
         driver.get("https://jqueryui.com/droppable/");
         //WebElement droppableElement=driver.findElement(By.linkText("Droppable"));
@@ -43,10 +39,10 @@ public class JQuertProject {
         WebElement droppable=driver.findElement(By.id("droppable"));
         actions.dragAndDrop(draggable,droppable).build().perform();
 
-
         //resize]
-        //test
         driver.get("https://jqueryui.com/resizable/");
+        //WebElement resizableLink=driver.findElement(By.linkText("Resizable"));
+        //resizableLink.click();
         WebElement resizableiframe2=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,resizableiframe2);
         driver.switchTo().frame(resizableiframe2);
@@ -59,8 +55,8 @@ public class JQuertProject {
         Point afterResize=resizableElement.getLocation();
         System.out.println(afterResize.x);
         System.out.println("Before resize:"+beforeResize.x+"/"+"After reize: "+afterResize.x);
-
-
+        driver.close();
+        driver.quit();
 
     }
     public static void waitForElement(WebDriver driver, WebElement element)
