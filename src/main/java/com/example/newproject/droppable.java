@@ -1,13 +1,9 @@
 package com.example.newproject;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 public class droppable {
@@ -18,16 +14,17 @@ public class droppable {
         WebDriver driver=new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.get("https://jqueryui.com");
-
-        WebElement droppableElement=driver.findElement(By.linkText("Droppable"));
-        droppableElement.click();
-        WebElement droppableiframe=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(droppableiframe);
-        WebElement draggable=driver.findElement(By.id("draggable"));
-        WebElement droppable=driver.findElement(By.id("droppable"));
+        driver.get("https://jqueryui.com/selectable/");
+        WebElement selectableIframe=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(selectableIframe);
+        WebElement item1=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
+        WebElement item3=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[3]"));
         Actions actions=new Actions(driver);
-        actions.dragAndDrop(draggable,droppable).build().perform();
+        item1.click();
+        actions.dragAndDrop(item1,item3).release();
+        actions.build().perform();
+
+
 
     }
 }

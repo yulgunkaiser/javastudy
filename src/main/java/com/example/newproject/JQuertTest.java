@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
-public class JQuertProject {
+public class JQuertTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","c:\\webdriver\\chromedriver.exe");
         ChromeOptions chromeOptions=new ChromeOptions();
@@ -20,6 +20,7 @@ public class JQuertProject {
 
         //draggable
         WebElement draggableLink=driver.findElement(By.linkText("Draggable"));
+        waitForElement(driver,draggableLink);
         draggableLink.click();
         WebElement draggableIframe=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,draggableIframe);
@@ -43,9 +44,9 @@ public class JQuertProject {
         driver.get("https://jqueryui.com/resizable/");
         //WebElement resizableLink=driver.findElement(By.linkText("Resizable"));
         //resizableLink.click();
-        WebElement resizableiframe2=driver.findElement(By.tagName("iframe"));
-        waitForElement(driver,resizableiframe2);
-        driver.switchTo().frame(resizableiframe2);
+        WebElement resizableiframe=driver.findElement(By.tagName("iframe"));
+        waitForElement(driver,resizableiframe);
+        driver.switchTo().frame(resizableiframe);
         WebElement resizableElement=driver.findElement(By.cssSelector(".ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se"));
         Point beforeResize=resizableElement.getLocation();
         System.out.println(beforeResize.x);
@@ -55,6 +56,24 @@ public class JQuertProject {
         Point afterResize=resizableElement.getLocation();
         System.out.println(afterResize.x);
         System.out.println("Before resize:"+beforeResize.x+"/"+"After reize: "+afterResize.x);
+
+        //selectable(single item)
+        driver.get("https://jqueryui.com/selectable/");
+        WebElement selectableIframe=driver.findElement(By.tagName("iframe"));
+        waitForElement(driver,selectableIframe);
+        driver.switchTo().frame(selectableIframe);
+        WebElement item1=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
+        item1.click();
+        //select multiple items
+        WebElement item2=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[2]"));
+        WebElement item3=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[3]"));
+        actions.dragAndDrop(item2,item3).release();
+        actions.build().perform();
+
+
+
+
+
         driver.close();
         driver.quit();
 
