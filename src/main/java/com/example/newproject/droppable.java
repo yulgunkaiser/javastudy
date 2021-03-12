@@ -3,7 +3,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class droppable {
@@ -14,15 +16,13 @@ public class droppable {
         WebDriver driver=new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        driver.get("https://jqueryui.com/selectable/");
-        WebElement selectableIframe=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(selectableIframe);
-        WebElement item1=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
-        WebElement item3=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[3]"));
         Actions actions=new Actions(driver);
-        item1.click();
-        actions.dragAndDrop(item1,item3).release();
-        actions.build().perform();
+        driver.get("https://jqueryui.com/autocomplete/");
+        WebElement autocompletePage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(autocompletePage);
+        WebElement tagInputBox=driver.findElement(By.id("tags"));
+        tagInputBox.sendKeys("b");
+
 
 
 
