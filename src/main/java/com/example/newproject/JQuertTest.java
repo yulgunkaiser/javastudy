@@ -75,25 +75,55 @@ public class JQuertTest {
         //sortable
         driver.get("https://jqueryui.com/sortable/");
         WebElement sortablePage=driver.findElement(By.tagName("iframe"));
-        waitForElement(driver,sortablePage);
+
         driver.switchTo().frame(sortablePage);
         WebElement sortableItem1=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[1]"));
         WebElement sortablrItem2=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[2]"));
-        waitForElement(driver,sortablrItem2);
-        actions.clickAndHold(sortableItem1).moveToElement(sortablrItem2,0,100).release();
+
+        actions.clickAndHold(sortableItem1).moveToElement(sortablrItem2,0,50).release();
         actions.build().perform();
 
-        //according
+        //accordion
         driver.get("https://jqueryui.com/accordion/");
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,500)");
-        WebElement accordingPage=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(accordingPage);
-        WebElement section2 = driver.findElement(By.cssSelector("#ui-id-7"));
-        waitForElement(driver,section2);
-        actions.moveToElement(section2).release();
+        WebElement accordionPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(accordionPage);
+        WebElement section4 = driver.findElement(By.cssSelector("#ui-id-7"));
+        waitForElement(driver,section4);
+        actions.moveToElement(section4).release();
         actions.build().perform();
-        section2.click();
+        section4.click();
+
+        //autocomplete
+
+
+
+
+        //button
+        driver.get("https://jqueryui.com/button/");
+        WebElement autocompletePage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(autocompletePage);
+        WebElement widgetButton=driver.findElement(By.xpath("/html/body/div/button"));
+        waitForElement(driver,widgetButton);
+        widgetButton.click();
+        WebElement submitButton=driver.findElement(By.cssSelector("body > div > input"));
+        waitForElement(driver,submitButton);
+        submitButton.click();
+        WebElement widgetAnchor=driver.findElement(By.linkText("An anchor"));
+        waitForElement(driver,widgetAnchor);
+        widgetAnchor.click();
+        WebElement cssButton=driver.findElement(By.xpath("/html/body/button"));
+        waitForElement(driver,cssButton);
+        cssButton.click();
+        WebElement cssSubmit=driver.findElement(By.cssSelector("body > input"));
+        waitForElement(driver,cssSubmit);
+        cssSubmit.click();
+        WebElement cssAnchor=driver.findElement(By.cssSelector("body > a"));
+        waitForElement(driver,cssAnchor);
+        cssAnchor.click();
+
+
 
 
         driver.close();
