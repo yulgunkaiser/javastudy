@@ -124,6 +124,43 @@ public class JQuertTest {
         cssAnchor.click();
 
 
+        //radioButton
+        driver.get("https://jqueryui.com/checkboxradio/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement radioButtonPage = driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(radioButtonPage);
+        WebElement newYorkButton=driver.findElement(By.xpath("/html/body/div/fieldset[1]/label[1]/span[1]"));
+        waitForElement(driver,newYorkButton);
+        newYorkButton.click();
+        WebElement ratingButton=driver.findElement(By.xpath("/html/body/div/fieldset[2]/label[2]/span[1]"));
+        waitForElement(driver,ratingButton);
+        ratingButton.click();
+        WebElement bedType=driver.findElement(By.xpath("/html/body/div/fieldset[3]/label[3]/span[1]"));
+        waitForElement(driver,bedType);
+        bedType.click();
+
+
+        //control group
+        driver.get("https://jqueryui.com/controlgroup/");
+        jse.executeScript("window.scrollBy(0,400)");
+        WebElement controlGroupPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(controlGroupPage);
+        WebElement compactCar=driver.findElement(By.xpath("//*[@id=\"car-type-button\"]/span[1]"));
+        waitForElement(driver,compactCar);
+        compactCar.click();
+        WebElement suv=driver.findElement(By.xpath("//*[@id=\"ui-id-4\"]"));
+        waitForElement(driver,suv);
+        suv.click();
+        WebElement standard=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[1]/span[1]"));
+        standard.click();
+        WebElement insurance=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[3]/span[1]"));
+        insurance.click();
+        WebElement numbersOfCars=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/span[2]/a[1]/span[1]"));
+        numbersOfCars.click();
+        WebElement bookButton=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/button"));
+        bookButton.click();
+
+
 
 
         driver.close();
