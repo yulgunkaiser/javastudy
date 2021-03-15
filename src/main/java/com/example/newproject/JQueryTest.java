@@ -284,6 +284,7 @@ public class JQueryTest {
         tabs3.click();
         WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
         tabs.click();
+        sleep(1);
 
 
 
