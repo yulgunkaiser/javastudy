@@ -249,8 +249,6 @@ public class JQuertTest {
         tabs.click();
 
 
-
-
         driver.close();
         driver.quit();
 
