@@ -22,6 +22,8 @@ public class Tabs {
 
 
         //dialog
+
+        driver.get("https://jqueryui.com/");
         driver.get("https://jqueryui.com/tabs/");
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,300)");
