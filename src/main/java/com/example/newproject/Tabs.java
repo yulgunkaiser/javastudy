@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class DatePicker {
+public class Tabs {
     public static void main(String[] args) {
 
         System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
@@ -19,15 +19,26 @@ public class DatePicker {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         Actions actions = new Actions(driver);
-        driver.get("https://jqueryui.com/datepicker/");
-        WebElement controlGroupPage=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(controlGroupPage);
-        WebElement dataBox=driver.findElement(By.id("datepicker"));
-        dataBox.click();
-        WebElement prevMonthButton=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]/span"));
-        prevMonthButton.click();
-        WebElement day10=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[2]/td[4]/a"));
-        day10.click();
+
+
+        //dialog
+        driver.get("https://jqueryui.com/tabs/");
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement tabsPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(tabsPage);
+        WebElement tabs2=driver.findElement(By.linkText("Proin dolor"));
+        tabs2.click();
+        WebElement tabs3=driver.findElement(By.linkText("Aenean lacinia"));
+        tabs3.click();
+        WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
+        tabs.click();
+
+
+
+
+
+
 
 
     }
@@ -37,4 +48,8 @@ public class DatePicker {
         WebDriverWait webDriverWait=new WebDriverWait(driver,30);
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
-}
+    public static void sleep (int seconds) {
+        try { Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }}}

@@ -169,8 +169,84 @@ public class JQuertTest {
         dataBox.click();
         WebElement prevMonthButton=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]/span"));
         prevMonthButton.click();
-        WebElement day10=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[2]/td[4]/a"));
+        WebElement day10=driver.findElement(By.linkText("10"));
         day10.click();
+
+
+        //dialog
+        driver.get("https://jqueryui.com/dialog/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement dialogPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(dialogPage);
+        WebElement dialogObject=driver.findElement(By.xpath("//*[@id=\"ui-id-1\"]"));
+        actions.dragAndDropBy(dialogObject,110,110);
+        WebElement resize=driver.findElement(By.xpath("/html/body/div/div[8]"));
+        actions.clickAndHold(resize).moveByOffset(-200,-200).release();
+        actions.build().perform();
+        WebElement closeDialog=driver.findElement(By.xpath("/html/body/div/div[1]/button/span[1]"));
+        closeDialog.click();
+
+
+        //menu
+        driver.get("https://jqueryui.com/menu/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement menuPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(menuPage);
+        WebElement musicList=driver.findElement(By.id("ui-id-9"));
+        actions.moveToElement(musicList).build().perform();
+        sleep(3);
+        WebElement rock=driver.findElement(By.xpath("//ul/li/div[text()='Rock']"));
+        actions.moveToElement(rock).build().perform();
+        sleep(3);
+        WebElement alternative=driver.findElement(By.xpath("//ul/li/div[text()='Alternative']"));
+        alternative.click();
+
+
+        //Select Menu
+        driver.get("https://jqueryui.com/selectmenu/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement selectMenuPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(selectMenuPage);
+        WebElement speedButton=driver.findElement(By.xpath("//*[@id=\"speed-button\"]/span[1]"));
+        speedButton.click();
+        WebElement fast=driver.findElement(By.xpath("//ul/li/div[text()='Fast']"));
+        fast.click();
+        sleep(2);
+        WebElement fileButton=driver.findElement(By.xpath("//*[@id=\"files-button\"]/span[1]"));
+        fileButton.click();
+        WebElement jquryUI=driver.findElement(By.xpath("//ul/li/div[text()='ui.jQuery.js']"));
+        jquryUI.click();
+        WebElement numberButton=driver.findElement(By.xpath("//*[@id=\"number-button\"]/span[1]"));
+        numberButton.click();
+        WebElement number5=driver.findElement(By.xpath("//ul/li/div[text()='5']"));
+        number5.click();
+        sleep(2);
+        WebElement titleButton=driver.findElement(By.xpath("//*[@id=\"salutation-button\"]/span[1]"));
+        titleButton.click();
+        WebElement title=driver.findElement(By.xpath("//ul/li/div[text()='Mr.']"));
+        title.click();
+
+
+        //slider
+        driver.get("https://jqueryui.com/slider/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement sliderPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(sliderPage);
+        WebElement slider=driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
+        actions.clickAndHold(slider).moveByOffset(200,0).moveByOffset(200,0).release().build().perform();
+
+
+        //tabs
+        driver.get("https://jqueryui.com/tabs/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement tabsPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(tabsPage);
+        WebElement tabs2=driver.findElement(By.linkText("Proin dolor"));
+        tabs2.click();
+        WebElement tabs3=driver.findElement(By.linkText("Aenean lacinia"));
+        tabs3.click();
+        WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
+        tabs.click();
 
 
 
@@ -184,5 +260,10 @@ public class JQuertTest {
         WebDriverWait webDriverWait=new WebDriverWait(driver,30);
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
+    public static void sleep (int seconds) {
+        try { Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }}
 
 }
