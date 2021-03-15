@@ -36,13 +36,6 @@ public class Tabs {
         WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
         tabs.click();
 
-
-
-
-
-
-
-
     }
 
     public static void waitForElement(WebDriver driver, WebElement element)
