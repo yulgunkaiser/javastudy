@@ -32,8 +32,6 @@ public class JQuertTest {
 
         //droppable
         driver.get("https://jqueryui.com/droppable/");
-        //WebElement droppableElement=driver.findElement(By.linkText("Droppable"));
-        //droppableElement.click();
         WebElement droppablePage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(droppablePage);
         WebElement draggable=driver.findElement(By.id("draggable"));
