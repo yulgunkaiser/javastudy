@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
-public class JQuertTest {
+public class JQueryTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","c:\\webdriver\\chromedriver.exe");
         ChromeOptions chromeOptions=new ChromeOptions();
@@ -22,6 +22,8 @@ public class JQuertTest {
         WebElement draggableLink=driver.findElement(By.linkText("Draggable"));
         waitForElement(driver,draggableLink);
         draggableLink.click();
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement draggablePage=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,draggablePage);
         driver.switchTo().frame(draggablePage);
@@ -29,97 +31,124 @@ public class JQuertTest {
         Actions actions=new Actions(driver);
         actions.clickAndHold(draggableObject).moveByOffset(60,0).release();
         actions.build().perform();
+        sleep(2);
 
         //droppable
         driver.get("https://jqueryui.com/droppable/");
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement droppablePage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(droppablePage);
         WebElement draggable=driver.findElement(By.id("draggable"));
         WebElement droppable=driver.findElement(By.id("droppable"));
         actions.dragAndDrop(draggable,droppable).build().perform();
+        sleep(2);
 
         //resize]
         driver.get("https://jqueryui.com/resizable/");
         //WebElement resizableLink=driver.findElement(By.linkText("Resizable"));
         //resizableLink.click();
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement resizablePage=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,resizablePage);
         driver.switchTo().frame(resizablePage);
         WebElement resizableElement=driver.findElement(By.cssSelector(".ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se"));
         Point beforeResize=resizableElement.getLocation();
         System.out.println(beforeResize.x);
-
         Actions actionsResize=new Actions(driver);
-        actionsResize.clickAndHold(resizableElement).moveByOffset(20,30).release().build().perform();
+        actionsResize.clickAndHold(resizableElement).moveByOffset(50,30).release().build().perform();
         Point afterResize=resizableElement.getLocation();
         System.out.println(afterResize.x);
         System.out.println("Before resize:"+beforeResize.x+"/"+"After reize: "+afterResize.x);
+        sleep(2);
+
 
         //selectable(single item)
         driver.get("https://jqueryui.com/selectable/");
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement selectablePage=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,selectablePage);
         driver.switchTo().frame(selectablePage);
         WebElement item1=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
         waitForElement(driver,item1);
         item1.click();
+        sleep(1);
         //select multiple items
         WebElement item2=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[2]"));
         WebElement item3=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[3]"));
         waitForElement(driver,item3);
         actions.dragAndDrop(item2,item3).release();
         actions.build().perform();
+        sleep(2);
+
 
         //sortable
         driver.get("https://jqueryui.com/sortable/");
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement sortablePage=driver.findElement(By.tagName("iframe"));
-
         driver.switchTo().frame(sortablePage);
         WebElement sortableItem1=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[1]"));
-        WebElement sortablrItem2=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[2]"));
-
-        actions.clickAndHold(sortableItem1).moveToElement(sortablrItem2,0,50).release();
+        WebElement sortableItem2=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[2]"));
+        actions.clickAndHold(sortableItem1).moveToElement(sortableItem2,0,50).release();
         actions.build().perform();
+        sleep(2);
+
 
         //accordion
         driver.get("https://jqueryui.com/accordion/");
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,500)");
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement accordionPage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(accordionPage);
         WebElement section4 = driver.findElement(By.cssSelector("#ui-id-7"));
         waitForElement(driver,section4);
         actions.moveToElement(section4).release();
         actions.build().perform();
+        sleep(1);
         section4.click();
+        sleep(2);
+
 
         //autocomplete
-
-
+        driver.get("https://jqueryui.com/autocomplete/");
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement autocompletePage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(autocompletePage);
+        WebElement tagBox=driver.findElement(By.xpath("//*[@id=\"tags\"]"));
+        tagBox.sendKeys("b");
+        sleep(2);
+        WebElement option=driver.findElement(By.xpath("//ul/li/div[text()='BASIC']"));
+        option.click();
 
 
         //button
         driver.get("https://jqueryui.com/button/");
-        WebElement autocompletePage=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(autocompletePage);
+        jse.executeScript("window.scrollBy(0,300)");
+        WebElement buttonPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(buttonPage);
         WebElement widgetButton=driver.findElement(By.xpath("/html/body/div/button"));
         waitForElement(driver,widgetButton);
         widgetButton.click();
+        sleep(1);
         WebElement submitButton=driver.findElement(By.cssSelector("body > div > input"));
         waitForElement(driver,submitButton);
         submitButton.click();
+        sleep(1);
         WebElement widgetAnchor=driver.findElement(By.linkText("An anchor"));
         waitForElement(driver,widgetAnchor);
         widgetAnchor.click();
+        sleep(1);
         WebElement cssButton=driver.findElement(By.xpath("/html/body/button"));
         waitForElement(driver,cssButton);
         cssButton.click();
+        sleep(1);
         WebElement cssSubmit=driver.findElement(By.cssSelector("body > input"));
         waitForElement(driver,cssSubmit);
         cssSubmit.click();
+        sleep(1);
         WebElement cssAnchor=driver.findElement(By.cssSelector("body > a"));
         waitForElement(driver,cssAnchor);
         cssAnchor.click();
+        sleep(2);
+
 
 
         //radioButton
@@ -136,6 +165,7 @@ public class JQuertTest {
         WebElement bedType=driver.findElement(By.xpath("/html/body/div/fieldset[3]/label[3]/span[1]"));
         waitForElement(driver,bedType);
         bedType.click();
+        sleep(1);
 
 
         //control group
@@ -146,9 +176,11 @@ public class JQuertTest {
         WebElement compactCar=driver.findElement(By.xpath("//*[@id=\"car-type-button\"]/span[1]"));
         waitForElement(driver,compactCar);
         compactCar.click();
+        sleep(1);
         WebElement suv=driver.findElement(By.xpath("//*[@id=\"ui-id-4\"]"));
         waitForElement(driver,suv);
         suv.click();
+        sleep(1);
         WebElement standard=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[1]/span[1]"));
         standard.click();
         WebElement insurance=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[3]/span[1]"));
@@ -157,10 +189,12 @@ public class JQuertTest {
         numbersOfCars.click();
         WebElement bookButton=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/button"));
         bookButton.click();
+        sleep(1);
 
 
         //date picker
         driver.get("https://jqueryui.com/datepicker/");
+        jse.executeScript("window.scrollBy(0,300)");
         WebElement datePickerPage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(datePickerPage);
         WebElement dataBox=driver.findElement(By.id("datepicker"));
@@ -169,6 +203,7 @@ public class JQuertTest {
         prevMonthButton.click();
         WebElement day10=driver.findElement(By.linkText("10"));
         day10.click();
+        sleep(1);
 
 
         //dialog
@@ -183,6 +218,7 @@ public class JQuertTest {
         actions.build().perform();
         WebElement closeDialog=driver.findElement(By.xpath("/html/body/div/div[1]/button/span[1]"));
         closeDialog.click();
+        sleep(1);
 
 
         //menu
@@ -192,12 +228,13 @@ public class JQuertTest {
         driver.switchTo().frame(menuPage);
         WebElement musicList=driver.findElement(By.id("ui-id-9"));
         actions.moveToElement(musicList).build().perform();
-        sleep(3);
+        sleep(2);
         WebElement rock=driver.findElement(By.xpath("//ul/li/div[text()='Rock']"));
         actions.moveToElement(rock).build().perform();
-        sleep(3);
+        sleep(2);
         WebElement alternative=driver.findElement(By.xpath("//ul/li/div[text()='Alternative']"));
         alternative.click();
+        sleep(1);
 
 
         //Select Menu
@@ -223,6 +260,7 @@ public class JQuertTest {
         titleButton.click();
         WebElement title=driver.findElement(By.xpath("//ul/li/div[text()='Mr.']"));
         title.click();
+        sleep(1);
 
 
         //slider
@@ -232,6 +270,7 @@ public class JQuertTest {
         driver.switchTo().frame(sliderPage);
         WebElement slider=driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
         actions.clickAndHold(slider).moveByOffset(200,0).moveByOffset(200,0).release().build().perform();
+        sleep(1);
 
 
         //tabs
@@ -245,6 +284,7 @@ public class JQuertTest {
         tabs3.click();
         WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
         tabs.click();
+
 
 
         driver.close();

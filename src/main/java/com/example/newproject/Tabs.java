@@ -23,18 +23,6 @@ public class Tabs {
 
         //dialog
 
-        driver.get("https://jqueryui.com/");
-        driver.get("https://jqueryui.com/tabs/");
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,300)");
-        WebElement tabsPage=driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(tabsPage);
-        WebElement tabs2=driver.findElement(By.linkText("Proin dolor"));
-        tabs2.click();
-        WebElement tabs3=driver.findElement(By.linkText("Aenean lacinia"));
-        tabs3.click();
-        WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
-        tabs.click();
 
     }
 
