@@ -38,11 +38,13 @@ public class Tabs {
 
     }
 
+
     public static void waitForElement(WebDriver driver, WebElement element)
     {
         WebDriverWait webDriverWait=new WebDriverWait(driver,30);
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
+    //sleep
     public static void sleep (int seconds) {
         try { Thread.sleep(seconds*1000);
         } catch (InterruptedException e) {
