@@ -161,6 +161,18 @@ public class JQuertTest {
         bookButton.click();
 
 
+        //date picker
+        driver.get("https://jqueryui.com/datepicker/");
+        WebElement datePickerPage=driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(datePickerPage);
+        WebElement dataBox=driver.findElement(By.id("datepicker"));
+        dataBox.click();
+        WebElement prevMonthButton=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]/span"));
+        prevMonthButton.click();
+        WebElement day10=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[2]/td[4]/a"));
+        day10.click();
+
+
 
 
         driver.close();
