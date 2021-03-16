@@ -1,4 +1,4 @@
-package com.example.newproject;
+package com.example.jquryProject;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
