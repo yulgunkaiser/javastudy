@@ -27,11 +27,23 @@ public class JQueryTest {
         WebElement draggablePage=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,draggablePage);
         driver.switchTo().frame(draggablePage);
+        sleep(1);
         WebElement draggableObject=driver.findElement(By.cssSelector(".ui-widget-content.ui-draggable.ui-draggable-handle"));
         Actions actions=new Actions(driver);
-        actions.clickAndHold(draggableObject).moveByOffset(60,0).release();
+        Point beforeDrag=draggableObject.getLocation();
+        int beforeDragToX=beforeDrag.getX();
+        actions.clickAndHold(draggableObject).moveByOffset(100,0).release();
         actions.build().perform();
+        Point afterLocation=draggableObject.getLocation();
+        int afterDragToX=afterLocation.getX();
+        if (afterDragToX>beforeDragToX)
+        {
+            System.out.println("Test, passed, object has dragged to another location ");
+        }
+        else
+            System.out.println("Test failed");
         sleep(2);
+
 
         //droppable
         driver.get("https://jqueryui.com/droppable/");
@@ -41,24 +53,36 @@ public class JQueryTest {
         WebElement draggable=driver.findElement(By.id("draggable"));
         WebElement droppable=driver.findElement(By.id("droppable"));
         actions.dragAndDrop(draggable,droppable).build().perform();
+        WebElement confirmationMessage=driver.findElement(By.xpath("//*[@id=\"droppable\"]/p"));
+        if (confirmationMessage.isDisplayed())
+        {
+            System.out.println("Test passed, object dropped into the target");
+        }
+        else
+            System.out.println("test failed");
         sleep(2);
+
 
         //resize]
         driver.get("https://jqueryui.com/resizable/");
-        //WebElement resizableLink=driver.findElement(By.linkText("Resizable"));
-        //resizableLink.click();
         jse.executeScript("window.scrollBy(0,300)");
         WebElement resizablePage=driver.findElement(By.tagName("iframe"));
         waitForElement(driver,resizablePage);
         driver.switchTo().frame(resizablePage);
         WebElement resizableElement=driver.findElement(By.cssSelector(".ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se"));
         Point beforeResize=resizableElement.getLocation();
+        int beforeResizeY=beforeResize.getY();
         System.out.println(beforeResize.x);
         Actions actionsResize=new Actions(driver);
         actionsResize.clickAndHold(resizableElement).moveByOffset(50,30).release().build().perform();
         Point afterResize=resizableElement.getLocation();
+        int afterResizeY=afterResize.getY();
         System.out.println(afterResize.x);
         System.out.println("Before resize:"+beforeResize.x+"/"+"After reize: "+afterResize.x);
+        if (afterResizeY>beforeResizeY)
+            System.out.println("Test passed, object resized");
+        else
+            System.out.println("Test failed");
         sleep(2);
 
 
@@ -71,6 +95,11 @@ public class JQueryTest {
         WebElement item1=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
         waitForElement(driver,item1);
         item1.click();
+        WebElement item1Selected=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[1]"));
+        if (item1Selected.isDisplayed())
+            System.out.println("Test passed, item1 selected");
+        else
+            System.out.println("Test failed");
         sleep(1);
         //select multiple items
         WebElement item2=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[2]"));
@@ -78,6 +107,13 @@ public class JQueryTest {
         waitForElement(driver,item3);
         actions.dragAndDrop(item2,item3).release();
         actions.build().perform();
+        WebElement item2Selected=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[2]"));
+        WebElement item3Selected=driver.findElement(By.xpath("//*[@id=\"selectable\"]/li[3]"));
+        if (item2Selected.isDisplayed())
+            if (item3Selected.isDisplayed())
+                System.out.println("Test passed, multiple items selected");
+            else
+                System.out.println("Test failed");
         sleep(2);
 
 
@@ -87,9 +123,17 @@ public class JQueryTest {
         WebElement sortablePage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(sortablePage);
         WebElement sortableItem1=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[1]"));
+        Point beforeSort=sortableItem1.getLocation();
+        int beforeSortToY=beforeSort.getY();
         WebElement sortableItem2=driver.findElement(By.xpath("//*[@id=\"sortable\"]/li[2]"));
         actions.clickAndHold(sortableItem1).moveToElement(sortableItem2,0,50).release();
         actions.build().perform();
+        Point afterSort=sortableItem1.getLocation();
+        int afterSortToY=afterSort.getY();
+        if (afterSortToY>beforeSortToY)
+            System.out.println("Test passed, items reordered");
+        else
+            System.out.println("Test failed");
         sleep(2);
 
 
@@ -104,6 +148,11 @@ public class JQueryTest {
         actions.build().perform();
         sleep(1);
         section4.click();
+        WebElement content=driver.findElement(By.xpath("//*[@id=\"ui-id-8\"]"));
+        if (content.isDisplayed())
+            System.out.println("Test passed, content is displayed");
+        else
+            System.out.println("Test failed");
         sleep(2);
 
 
@@ -117,6 +166,11 @@ public class JQueryTest {
         sleep(2);
         WebElement option=driver.findElement(By.xpath("//ul/li/div[text()='BASIC']"));
         option.click();
+        WebElement confirmation=driver.findElement(By.xpath("//*[@id=\"tags\"]"));
+        if (confirmation.isDisplayed())
+            System.out.println("Test passed, option typed in the tag ");
+        else
+            System.out.println("Test failed");
 
 
         //button
@@ -147,6 +201,10 @@ public class JQueryTest {
         WebElement cssAnchor=driver.findElement(By.cssSelector("body > a"));
         waitForElement(driver,cssAnchor);
         cssAnchor.click();
+        if (cssAnchor.isSelected())
+            System.out.println("Test passed, button clicked");
+        else
+            System.out.println("Test failed");
         sleep(2);
 
 
@@ -165,7 +223,17 @@ public class JQueryTest {
         WebElement bedType=driver.findElement(By.xpath("/html/body/div/fieldset[3]/label[3]/span[1]"));
         waitForElement(driver,bedType);
         bedType.click();
+        WebElement newYorkButtonChecked=driver.findElement(By.xpath("/html/body/div/fieldset[1]/label[1]"));
+        WebElement ratingChecked=driver.findElement(By.xpath("/html/body/div/fieldset[2]/label[2]"));
+        WebElement bedTypeChecked=driver.findElement(By.xpath("/html/body/div/fieldset[3]/label[3]"));
+        if (newYorkButtonChecked.isDisplayed())
+            if (ratingChecked.isDisplayed())
+                if (bedTypeChecked.isDisplayed())
+                    System.out.println("Test passed, city, rating, bed type checked");
+                else
+                    System.out.println("Test failed");
         sleep(1);
+
 
 
         //control group
@@ -185,10 +253,23 @@ public class JQueryTest {
         standard.click();
         WebElement insurance=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[3]/span[1]"));
         insurance.click();
+        sleep(1);
         WebElement numbersOfCars=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/span[2]/a[1]/span[1]"));
         numbersOfCars.click();
+        sleep(1);
         WebElement bookButton=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/button"));
         bookButton.click();
+        WebElement suvSelected=driver.findElement(By.xpath("//*[@id=\"car-type-button\"]/span[2]"));
+        WebElement standardChecked=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[1]"));
+        WebElement insuranceChecked=driver.findElement(By.xpath("/html/body/div[1]/fieldset[1]/div/label[3]"));
+        WebElement numbersOfCarsChecked=driver.findElement(By.xpath("//*[@id=\"horizontal-spinner\"]"));
+        if (suvSelected.isDisplayed())
+            if (standardChecked.isDisplayed())
+                if (insuranceChecked.isDisplayed())
+                    if (numbersOfCarsChecked.isDisplayed())
+                        System.out.println("Test passed, car type, standard, insurance, numbers of cards checked");
+                    else
+                        System.out.println("Test failed");
         sleep(1);
 
 
@@ -203,6 +284,11 @@ public class JQueryTest {
         prevMonthButton.click();
         WebElement day10=driver.findElement(By.linkText("10"));
         day10.click();
+        WebElement monthSelected=driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/div/span[1]"));
+        if (monthSelected.isDisplayed())
+            System.out.println("Test passed, date checked");
+        else
+            System.out.println("Test failed");
         sleep(1);
 
 
@@ -218,6 +304,11 @@ public class JQueryTest {
         actions.build().perform();
         WebElement closeDialog=driver.findElement(By.xpath("/html/body/div/div[1]/button/span[1]"));
         closeDialog.click();
+        WebElement contentClosed=driver.findElement(By.xpath("//*[@id=\"ui-id-1\"]"));
+        if (!contentClosed.isDisplayed())
+            System.out.println("Test passed, content closed");
+        else
+            System.out.println("Test failed");
         sleep(1);
 
 
@@ -260,6 +351,11 @@ public class JQueryTest {
         titleButton.click();
         WebElement title=driver.findElement(By.xpath("//ul/li/div[text()='Mr.']"));
         title.click();
+        WebElement titleSelected=driver.findElement(By.xpath("//*[@id=\"salutation-button\"]/span[2]"));
+        if (titleSelected.isDisplayed())
+            System.out.println("Test passed, title selected");
+        else
+            System.out.println("Test failed");
         sleep(1);
 
 
@@ -269,7 +365,15 @@ public class JQueryTest {
         WebElement sliderPage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(sliderPage);
         WebElement slider=driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
+        Point beforeSlideLocation=slider.getLocation();
+        int beforeSlideX=beforeSlideLocation.getX();
         actions.clickAndHold(slider).moveByOffset(200,0).moveByOffset(200,0).release().build().perform();
+        Point afterSlideLocation=slider.getLocation();
+        int afterSlideX=afterSlideLocation.getX();
+        if (afterSlideX>beforeSlideX)
+            System.out.println("Test passed, slider moved to the right");
+        else
+            System.out.println("Test failed");
         sleep(1);
 
 
@@ -278,12 +382,17 @@ public class JQueryTest {
         jse.executeScript("window.scrollBy(0,300)");
         WebElement tabsPage=driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(tabsPage);
-        WebElement tabs2=driver.findElement(By.linkText("Proin dolor"));
-        tabs2.click();
-        WebElement tabs3=driver.findElement(By.linkText("Aenean lacinia"));
-        tabs3.click();
-        WebElement tabs=driver.findElement(By.linkText("Nunc tincidunt"));
-        tabs.click();
+        WebElement tab2=driver.findElement(By.linkText("Proin dolor"));
+        tab2.click();
+        WebElement tab3=driver.findElement(By.linkText("Aenean lacinia"));
+        tab3.click();
+        WebElement tab1=driver.findElement(By.linkText("Nunc tincidunt"));
+        tab1.click();
+        WebElement tab1Clicked=driver.findElement(By.xpath("//*[@id=\"tabs-1\"]/p"));
+                if (tab1Clicked.isDisplayed())
+                    System.out.println("Test passed, all three tabs clicked, contents are displayed");
+                else
+                    System.out.println("Test failed");
         sleep(1);
 
 
